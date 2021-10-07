@@ -5,11 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\AlertsFramesWindows.feature.cs" />
+    <Compile Remove="Features\Forms.feature.cs" />
     <Compile Remove="Features\Home.feature.cs" />
     <Compile Remove="StepDefinitions\HomeSteps.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowFeatureFiles Remove="Features\AlertsFramesWindows.feature" />
+    <SpecFlowFeatureFiles Remove="Features\Forms.feature" />
     <SpecFlowFeatureFiles Remove="Features\Home.feature" />
   </ItemGroup>
 

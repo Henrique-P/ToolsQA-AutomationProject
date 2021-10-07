@@ -124,29 +124,22 @@ namespace ToolsQA.StepDefinitions
                 elementsButtons.ClicaBotao(botao);
         }
 
-        [When(@"se necessario aguardo até que ""(.*)"" mude suas propriedades")]
-        public void QuandoSeNecessarioAguardoAteQueMudeSuasPropriedades(string elemento)
+        [When(@"visualizo o texto dinamico")]
+        public void QuandoVisualizoOTextoDinamico()
         {
-            /*switch (elemento)
-            {
-                case "Will enable 5 seconds":
-                    break;
-                case "Color change":
-                    break;
-                case "Visible after 5 seconds":
-                    break;
-                case "This text has random Id":
-                    break;
-            }*/
+            Assert.IsTrue(dynamicProperties.ValidaTextoIdRandomica().Equals("This text has random Id"));
+            Assert.IsFalse(dynamicProperties.botaoEnableAfter.Enabled);
+            //Assert.IsFalse(dynamicProperties.botaoVisibleAfter.Displayed);
+            Assert.IsFalse(dynamicProperties.botaoColorChange.GetAttribute("class").Contains("text-danger"));
         }
 
-        [Then(@"devo visualizar a mudanca")]
-        public void EntaoDevoVisualizarAMudanca()
+        [Then(@"aguardo até que dois botoes se tornem clicáveis e que um terceiro mude a cor")]
+        public void EntaoAguardoAteQueDoisBotoesSeTornemClicaveisEQueUmTerceiroMudeACor()
         {
             Assert.IsTrue(dynamicProperties.ValidaBotaoVisivel().Displayed);
-            Assert.IsTrue(dynamicProperties.ValidaTextoIdRandomica().Equals("This text has random Id"));
             Assert.IsTrue(dynamicProperties.ValidaBotaoColorido().GetAttribute("class").Contains("text-danger"));
             Assert.IsTrue(dynamicProperties.ValidaDesativado().Enabled);
         }
+
     }
 }

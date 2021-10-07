@@ -15,8 +15,12 @@ namespace ToolsQA.Pages
         [FindsBy(How = How.CssSelector, Using = "label[for='yesRadio']")]
         public IWebElement botaoRadioYes;
 
-        [FindsBy(How = How.XPath, Using = "//p[text() = 'You have selected ']")]
+        //[FindsBy(How = How.XPath, Using = "//p[text() = 'You have selected ']")]
+        //public IWebElement confirmacaoBotaoRadio;
+
+        [FindsBy(How = How.CssSelector, Using = "div p")]
         public IWebElement confirmacaoBotaoRadio;
+
 
         public ElementsRadioButton(IWebDriver webDriver)
         {

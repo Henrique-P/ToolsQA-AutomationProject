@@ -45,14 +45,7 @@ Funcionalidade: Interagir com elementos
       | "Impressive" | "You have selected Impressive" |
 
     @dynamicproperties
-    Esquema do Cenario: Interagir com elementos dinamicos
+    Cenario: Interagir com elementos dinamicos
       Quando clico sobre "Dynamic Properties"
-      E se necessario aguardo até que <elemento> mude suas propriedades
-      Entao devo visualizar a mudanca
-      
-      Exemplos:
-      | elemento                  |
-      | "Will enable 5 seconds"   |
-      | "Color change"            |
-      | "Visible after 5 seconds" |
-      | "This text has random Id" |
+      E visualizo o texto dinamico
+      Entao aguardo até que dois botoes se tornem clicáveis e que um terceiro mude a cor

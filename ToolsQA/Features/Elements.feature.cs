@@ -296,21 +296,11 @@ namespace ToolsQA.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Interagir com elementos dinamicos")]
         [NUnit.Framework.CategoryAttribute("dynamicproperties")]
-        [NUnit.Framework.TestCaseAttribute("\"Will enable 5 seconds\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"Color change\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"Visible after 5 seconds\"", null)]
-        [NUnit.Framework.TestCaseAttribute("\"This text has random Id\"", null)]
-        public virtual void InteragirComElementosDinamicos(string elemento, string[] exampleTags)
+        public virtual void InteragirComElementosDinamicos()
         {
-            string[] @__tags = new string[] {
+            string[] tagsOfScenario = new string[] {
                     "dynamicproperties"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("elemento", elemento);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Interagir com elementos dinamicos", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 48
     this.ScenarioInitialize(scenarioInfo);
@@ -339,10 +329,10 @@ namespace ToolsQA.Features
       testRunner.When("clico sobre \"Dynamic Properties\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
 #line 50
-      testRunner.And(string.Format("se necessario aguardo até que {0} mude suas propriedades", elemento), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+      testRunner.And("visualizo o texto dinamico", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
 #line 51
-      testRunner.Then("devo visualizar a mudanca", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
+      testRunner.Then("aguardo até que dois botoes se tornem clicáveis e que um terceiro mude a cor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
 #line hidden
             }
             this.ScenarioCleanup();

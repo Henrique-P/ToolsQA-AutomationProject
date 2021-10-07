@@ -12,13 +12,13 @@ namespace ToolsQA.Pages
     {
         private IWebDriver webDriver;
 
-        [FindsBy(How = How.CssSelector, Using = "#enableAfter")]
+        [FindsBy(How = How.Id, Using = "enableAfter")]
         public IWebElement botaoEnableAfter;
 
-        [FindsBy(How = How.CssSelector, Using = "#colorChange")]
+        [FindsBy(How = How.Id, Using = "colorChange")]
         public IWebElement botaoColorChange;
 
-        [FindsBy(How = How.CssSelector, Using = "#visibleAfter")]
+        [FindsBy(How = How.Id, Using = "visibleAfter")]
         public IWebElement botaoVisibleAfter;
 
         [FindsBy(How = How.XPath, Using = "//p[text()='This text has random Id']")]
