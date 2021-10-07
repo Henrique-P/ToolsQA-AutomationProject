@@ -9,19 +9,19 @@ namespace ToolsQA.Pages
     {
         private IWebDriver webDriver;
 
-        [FindsBy(How = How.CssSelector, Using = "#userName")]
+        [FindsBy(How = How.Id, Using = "userName")]
         public IWebElement userName;
 
-        [FindsBy(How = How.CssSelector, Using = "#userEmail")]
+        [FindsBy(How = How.Id, Using = "userEmail")]
         public IWebElement userEmail;
 
-        [FindsBy(How = How.CssSelector, Using = "#currentAddress")]
+        [FindsBy(How = How.Id, Using = "currentAddress")]
         public IWebElement currentAddress;
 
-        [FindsBy(How = How.CssSelector, Using = "#permanentAddress")]
+        [FindsBy(How = How.Id, Using = "permanentAddress")]
         public IWebElement permanentAddress;
 
-        [FindsBy(How = How.CssSelector, Using = "#submit")]
+        [FindsBy(How = How.Id, Using = "submit")]
         public IWebElement botaoEnviar;
 
         [FindsBy(How = How.CssSelector, Using = "div.border")]

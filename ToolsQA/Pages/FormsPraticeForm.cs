@@ -9,17 +9,8 @@ namespace ToolsQA.Pages
     {
         private IWebDriver webDriver;
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Home')]//..//..//button")]
+        [FindsBy(How = How.XPath, Using = "")]
         public IWebElement checkboxHome;
-
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Downloads')]//..//..//button")]
-        public IWebElement checkboxDownloads;
-
-        [FindsBy(How = How.CssSelector, Using = "label[for='tree-node-excelFile']")]
-        public IWebElement checkboxFile;
-
-        [FindsBy(How = How.CssSelector, Using = "span.text-success")]
-        public IWebElement respostaSelecao;
 
         public FormsPraticeForm(IWebDriver webDriver)
         {

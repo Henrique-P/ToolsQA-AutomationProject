@@ -10,16 +10,19 @@ namespace ToolsQA.Pages
     {
         private IWebDriver webDriver;
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Home')]//..//..//button")]
-        public IWebElement checkboxHome;
+        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Home')]/../../button")]
+        public IWebElement botaoExpandeHome;
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Downloads')]//..//..//button")]
-        public IWebElement checkboxDownloads;
+        //[FindsBy(How = How.CssSelector, Using = "#tree-node > ol > li > span button")]
+        //public IWebElement botaoExpandeHome;
+
+        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Downloads')]/../../button")]
+        public IWebElement botaoExpandeDownloads;
 
         [FindsBy(How = How.CssSelector, Using = "label[for='tree-node-excelFile']")]
-        public IWebElement checkboxFile;
+        public IWebElement botaoExpandeFile;
 
-        [FindsBy(How = How.XPath, Using = "//div[@id='result']")]
+        [FindsBy(How = How.ClassName, Using = "display-result")]
         public IWebElement respostaCheckBox;
 
         public ElementsCheckBox(IWebDriver webDriver)
@@ -30,19 +33,19 @@ namespace ToolsQA.Pages
 
         public void ClicaCheckBoxHome()
         {
-            checkboxHome.Click();
+            botaoExpandeHome.Click();
             //Thread.Sleep(500);
         }
 
         public void ClicaCheckBoxDocuments()
         {
-            checkboxDownloads.Click();
+            botaoExpandeDownloads.Click();
             //Thread.Sleep(500);
         }
 
         public void ClicaCheckBoxExcelFile()
         {
-            checkboxFile.Click();
+            botaoExpandeFile.Click();
         }
 
         public string ValidaCheckBox()

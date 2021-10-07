@@ -89,22 +89,30 @@ namespace ToolsQA.StepDefinitions
         [Then(@"devo visualizar ""(.*)""")]
         public void EntaoDevoVisualizar(string mensagemEsperada)
         {
-            switch (mensagemEsperada)
+            //Seleção com ScenarioInfo e switch
+            switch (context.ScenarioInfo.Title)
             {
-                case "You have selected :excelFile":
+                case "Interagir com botoes":
+                    Assert.IsTrue(elementsButtons.ValidarBotoes().Equals(mensagemEsperada));
+                    break;
+                case "Interagir com botao Radio":
+                    Assert.IsTrue(elementsRadioButton.ValidarResposta().Equals(mensagemEsperada));
+                    break;
+                case "Interagir com checkbox":
                     Assert.IsTrue(elementsCheckBox.ValidaCheckBox().Equals(mensagemEsperada));
                     break;
-                case "You have selected Impressive":
-                    Assert.IsTrue(elementsRadioButton.ValidarResposta().Equals(mensagemEsperada));
-                    break;
-                case "You have selected Yes":
-                    Assert.IsTrue(elementsRadioButton.ValidarResposta().Equals(mensagemEsperada));
-                    break;
                 default:
-                    Assert.IsTrue(elementsButtons.ValidarBotoes(mensagemEsperada).Equals(mensagemEsperada));
+                    context.Pending();
                     break;
-
             }
+            
+            //Seleção com Ifs
+            //if (mensagemEsperada.EndsWith("Yes") || mensagemEsperada.EndsWith("Impressive"))
+            //    Assert.IsTrue(elementsRadioButton.ValidarResposta().Equals(mensagemEsperada));
+            //if (mensagemEsperada.EndsWith("excelFile")) 
+            //    Assert.IsTrue(elementsCheckBox.ValidaCheckBox().Equals(mensagemEsperada));
+            //if (mensagemEsperada.EndsWith("Me"))
+            //    Assert.IsTrue(elementsButtons.ValidarBotoes(mensagemEsperada).Equals(mensagemEsperada));
         }
 
         [When(@"em seguida clico em ""(.*)""")]
@@ -140,8 +148,5 @@ namespace ToolsQA.StepDefinitions
             Assert.IsTrue(dynamicProperties.ValidaBotaoColorido().GetAttribute("class").Contains("text-danger"));
             Assert.IsTrue(dynamicProperties.ValidaDesativado().Enabled);
         }
-
-
-
     }
 }

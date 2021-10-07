@@ -9,8 +9,8 @@ namespace ToolsQA.Pages
     {
         private IWebDriver webDriver;
 
-        [FindsBy(How = How.XPath, Using = "//h5[contains(text(), 'Elements')]")]
-        public IWebElement botaoElementos;
+        //[FindsBy(How = How.XPath, Using = "//h5[contains(text(), 'Elements')]")]
+        //public IWebElement botaoElementos;
 
         [FindsBy(How = How.CssSelector, Using = "div.accordion")]
         public IWebElement painelEsquerda;
@@ -18,7 +18,7 @@ namespace ToolsQA.Pages
         [FindsBy(How = How.CssSelector, Using = "div.element-group div.show")]
         public IWebElement opcoesVisiveis;
 
-        [FindsBy(How = How.CssSelector, Using = "#close-fixedban")]
+        [FindsBy(How = How.Id, Using = "close-fixedban")]
         public IWebElement botaoFecharAnuncio;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='element-list collapse show']/../span")]
@@ -27,21 +27,16 @@ namespace ToolsQA.Pages
         [FindsBy(How = How.CssSelector, Using = "div.category-cards")]
         public IWebElement quadroDeCardsHome;
 
-        //div[@class = 'category-cards']/div/div/div/h5[text()='Elements']
-
-        // //div[contains(text(), 'Forms')] Seleciona qualquer collection
-        // //li/span[contains(text(), 'Text Box')] Seleciona qualquer botao dentro da collection
-
         public Home(IWebDriver webDriver)
         {
             this.webDriver = webDriver;
             PageFactory.InitElements(this.webDriver, this);
         }
 
-        public void ClicaEmElementos()
-        {
-            botaoElementos.Click();
-        }
+       // public void ClicaEmElementos()
+       //{
+       //     botaoElementos.Click();
+       // }
 
         public void ClicaCard(string card)
         {

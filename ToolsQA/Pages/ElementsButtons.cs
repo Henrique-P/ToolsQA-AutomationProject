@@ -17,22 +17,24 @@ namespace ToolsQA.Pages
             PageFactory.InitElements(this.webDriver, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = "#doubleClickBtn")]
+        public string testeFeito;
+
+        [FindsBy(How = How.Id, Using = "doubleClickBtn")]
         public IWebElement botaoCliqueDuplo;
 
-        [FindsBy(How = How.CssSelector, Using = "#rightClickBtn")]
+        [FindsBy(How = How.Id, Using = "rightClickBtn")]
         public IWebElement botaoCliqueDireito;
 
         [FindsBy(How = How.XPath, Using = "//button[text() = 'Click Me']")]
         public IWebElement botaoDinamico;
 
-        [FindsBy(How = How.CssSelector, Using = "p#doubleClickMessage")]
+        [FindsBy(How = How.Id, Using = "doubleClickMessage")]
         public IWebElement respostaBotaoCliqueDuplo;
 
-        [FindsBy(How = How.CssSelector, Using = "p#rightClickMessage")]
+        [FindsBy(How = How.Id, Using = "rightClickMessage")]
         public IWebElement respostaBotaoCliqueDireito;
 
-        [FindsBy(How = How.CssSelector, Using = "p#dynamicClickMessage")]
+        [FindsBy(How = How.Id, Using = "dynamicClickMessage")]
         public IWebElement respostaBotaoCliqueDinamico;
 
         public void ClicarDuasVezes()
@@ -57,21 +59,34 @@ namespace ToolsQA.Pages
             {
                 case "Double Click Me":
                     ClicarDuasVezes();
+                    testeFeito = "ClicarDuasVezes";
                     break;
                 case "Right Click Me":
                     CliqueComDireito();
+                    testeFeito = "CliqueComDireito";
                     break;
                 case "Click Me":
                     CliqueBotaoDinamico();
+                    testeFeito = "CliqueBotaoDinamico";
                     break;
             }
         }
 
-        public string ValidarBotoes(string mensagem = "")
+        public string ValidarBotoes()
         {
-            //string[] respostas = {respostaBotaoCliqueDuplo.Text.ToString(), respostaBotaoCliqueDireito.Text.ToString(), respostaBotaoCliqueDinamico.Text.ToString()};
-            //return String.Join(";", respostas);
-            switch (mensagem)
+            switch (testeFeito)
+            {
+                case "ClicarDuasVezes":
+                    return respostaBotaoCliqueDuplo.Text;
+                case "CliqueComDireito":
+                    return respostaBotaoCliqueDireito.Text;
+                case "CliqueBotaoDinamico":
+                    return respostaBotaoCliqueDinamico.Text;
+                default:
+                    return "";
+            }
+            
+            /*switch (mensagem)
             {
                 case "You have done a double click":
                     return respostaBotaoCliqueDuplo.Text;
@@ -82,7 +97,7 @@ namespace ToolsQA.Pages
                 default:
                     string[] respostas = { respostaBotaoCliqueDuplo.Text.ToString(), respostaBotaoCliqueDireito.Text.ToString(), respostaBotaoCliqueDinamico.Text.ToString() };
                     return String.Join(";", respostas);
-            }
+            }*/
         }
     }
 }
